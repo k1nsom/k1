@@ -1,17 +1,21 @@
-from math import fabs
-from math import pi
+import random
+import math
 
-def sin(x):
-    g = 0
-    t = x
-    n = 1
-    while (fabs(t) >= 1e-10):
-        g += t
-        n += 1
-        t = -t * x * x / (2 * n - 1) / (2 * n - 2)
-    return g
-n=eval(input())
-sum=0.0
-for i in range(1,n+1):
-    sum=sum+i*(1.0/n) *((2+1.0/n)**2+4*(2+1.0/n)*sin(2+1.0/n))
-print(sum/n)
+def monte_carlo_integration(f, a, b, n):
+    total = 0
+    for _ in range(n):
+        x = random.uniform(a, b)
+        total += f(x)
+    average = total / n
+    integral = average * (b - a)
+    return integral
+
+def f(x):
+    return x**2 + 4 * x * math.sin(x)
+
+a = 2
+b = 3
+n = 1000000
+
+integral = monte_carlo_integration(f, a, b, n)
+print("答案为:", integral)

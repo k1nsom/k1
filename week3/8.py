@@ -41,7 +41,6 @@ def merge(left, right):
 random_list = generate_random_list(10)
 print("原始数据：", random_list)
 sorted_list1 = selection_sort(random_list.copy())
-print("选择排序结果：", sorted_list1)
+print("选择排序结果(时间复杂度为O(n^2)：", sorted_list1)
 sorted_list2 = merge_sort(random_list.copy())
-print("归并排序结果：", sorted_list2)
-#k1nsom has finished this work!!
+print("归并排序结果(时间复杂度为O(n*logn))：", sorted_list2)
