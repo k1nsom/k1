@@ -1,0 +1,8 @@
+SELECT * FROM user WHERE age > 20 AND age < 30;//查找年龄在[20,30]的用户
+DELETE FROM user WHERE name LIKE '%张%';//删除名字包含“张”的用户
+SELECT AVG(age) FROM user;//计算user表中的用户的平均年龄
+SELECT * FROM user WHERE age BETWEEN 20 AND 30 AND name LIKE '%张%' ORDER BY age DESC;//查询user表中年龄在20-30范围内，名字包含张的用户，并按照年龄从大到小排序输出
+SELECT * FROM users WHERE teamName = 'ECNU' AND age < 20;//查询teamName为"ECNU"的队伍中，年龄小于20的用户们
+SELECT SUM(IFNULL(score, 0)) AS total_score
+FROM team
+WHERE teamName = 'ECNU';//查询teamName为"ECNU"的总分(如果score存在null值，null默认为0加入计算)
